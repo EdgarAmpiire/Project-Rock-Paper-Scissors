@@ -18,8 +18,8 @@ function getComputerChoice() {
 
 // Logic to get the human choice and returns one choice depending on what the human inputs
 function getHumanChoice() {
-  let choice = prompt("Please enter your choice: ");
-  return choice;
+  let userInput = prompt("Please enter your choice: ");
+  return userInput;
 }
 
 // Logic to play the entire game of rounds of five
