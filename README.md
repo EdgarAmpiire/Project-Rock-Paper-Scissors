@@ -8,3 +8,9 @@ Where it will be testing my Javascript skills including;
  - Functions
  - Loops
  - Running Tests
+
+ # Play the game:
+  - Open the live link of the repo
+  - When the site is loaded, right click on the page and select inspect
+  - Click on the console option.
+  - Have fun!
