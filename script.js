@@ -18,7 +18,7 @@ function getComputerChoice() {
 
 // Logic to get the human choice and returns one choice depending on what the human inputs
 function getHumanChoice() {
-  //   let choice = prompt("Please enter your choice: ");
+  let choice = prompt("Please enter your choice: ");
   return choice;
 }
 
