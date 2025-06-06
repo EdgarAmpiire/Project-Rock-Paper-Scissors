@@ -46,11 +46,11 @@ function playGame() {
       (humanChoice === "scissors" && computerChoice === "paper")
     ) {
       humanScore++;
-      console.log(`Times you won: ${humanScore}`);
+      // console.log(`Times you won: ${humanScore}`);
       return `You win! ${humanChoice} beats ${computerChoice}.`;
     } else {
       computerScore++;
-      console.log(`Times computer won: ${computerScore}`);
+      // console.log(`Times computer won: ${computerScore}`);
       return `You lose! ${computerChoice} beats ${humanChoice}.`;
     }
   }
@@ -74,6 +74,11 @@ function playGame() {
   score.textContent = "";
   const winner = document.createElement("div");
   winner.textContent = "";
+  content.setAttribute("style", "background-color: pink; padding: 25px; justify-content:center;")
+  rockBtn.setAttribute("style", "background-color: green; color:white; padding: 10px; margin:10px; ")
+  paperBtn.setAttribute("style", "background-color: green; color:white; padding: 10px; margin:10px; ")
+  scissorsBtn.setAttribute("style", "background-color: green; color:white; padding: 10px; margin:10px; ")
+  
 
   content.appendChild(rockBtn);
   content.appendChild(paperBtn);
