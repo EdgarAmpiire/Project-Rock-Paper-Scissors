@@ -17,10 +17,10 @@ function getComputerChoice() {
 }
 
 // Logic to get the human choice and returns one choice depending on what the human inputs
-function getHumanChoice() {
-  let userInput = prompt("Please enter your choice: ");
-  return userInput;
-}
+// function getHumanChoice() {
+//   let userInput = document.querySelector("#rock");
+//   return userInput;
+// }
 
 // Logic to play the entire game of rounds of five
 function playGame() {
@@ -31,11 +31,11 @@ function playGame() {
 
   // Logic to play a single round
   function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
+    // humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
-    console.log(`You Selected: ${humanChoice}`);
-    console.log(`Computer Selected: ${computerChoice}`);
+    // console.log(`You Selected: ${humanChoice}`);
+    // console.log(`Computer Selected: ${computerChoice}`);
 
     if (humanChoice === computerChoice) {
       tie++;
@@ -54,16 +54,113 @@ function playGame() {
       return `You lose! ${computerChoice} beats ${humanChoice}.`;
     }
   }
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
+  // Logic that plays 5 rounds
+  // for (let i = 0; i < 5; i++) {
+  //   const humanSelection = getHumanChoice();
+  //   const computerSelection = getComputerChoice();
+  //   const result = playRound(humanSelection, computerSelection);
+  //   console.log(`Round ${i + 1}: ${result}`);
+  // }
+
+  // function for the buttons to call playRound function
+  const content = document.querySelector(".content")
+  const rockBtn = document.querySelector("#rock");
+  const paperBtn = document.querySelector("#paper");
+  const scissorsBtn = document.querySelector("#scissors");
+
+  const displayResult = document.createElement("div");
+  displayResult.textContent = "";
+  const score = document.createElement("div");
+  score.textContent = "";
+  const winner = document.createElement("div");
+  winner.textContent = "";
+
+  content.appendChild(rockBtn);
+  content.appendChild(paperBtn);
+  content.appendChild(scissorsBtn);
+  content.appendChild(displayResult);
+  content.appendChild(score);
+  content.appendChild(winner);
+
+  let round = 0;
+
+  // Rock Button
+  rockBtn.addEventListener("click", () => {
+    if (round >= 5) return;
+    round++;
+    const humanSelection = "rock";
     const computerSelection = getComputerChoice();
     const result = playRound(humanSelection, computerSelection);
-    console.log(`Round ${i + 1}: ${result}`);
-  }
+    
+    // Results of the game
+    displayResult.innerHTML = `Round: ${round} <br> You selected: ${humanSelection} <br> 
+    Computer Selected: ${computerSelection} <br> Result: ${result}`;
+    
+    // Determine winner of the game
+    if (round === 5) {
+      score.textContent = `Final Score -> You: ${humanScore}, Computer: ${computerScore}, Ties: ${tie}`;
+      let gameWinner = "It's a tie!";
+      if (humanScore > computerScore) {
+        gameWinner = "You!"
+      } else if (computerScore > humanScore) {
+        gameWinner = "Computer"
+      }
+      winner.textContent = `The winner of the game is ${gameWinner}`;
+    }
+  });
 
-  console.log(
-    `Final Score -> You: ${humanScore}, Computer: ${computerScore}, Ties: ${tie}`
-  );
+  // Paper Button
+  paperBtn.addEventListener("click", () => {
+    if (round >= 5) return;
+    round++;
+    const humanSelection = "paper";
+    const computerSelection = getComputerChoice();
+    const result = playRound(humanSelection, computerSelection);
+    
+    // Results of the game
+    displayResult.innerHTML = `Round: ${round} <br> You selected: ${humanSelection} <br> 
+    Computer Selected: ${computerSelection} <br> Result: ${result}`;
+    
+    // Determine winner of the game
+    if (round === 5) {
+      score.textContent = `Final Score -> You: ${humanScore}, Computer: ${computerScore}, Ties: ${tie}`;
+      let gameWinner = "It's a tie!";
+      if (humanScore > computerScore) {
+        gameWinner = "You!"
+      } else if (computerScore > humanScore) {
+        gameWinner = "Computer"
+      }
+      winner.textContent = `The winner of the game is ${gameWinner}`;
+    }
+  });
+
+  // Scissors Button
+  scissorsBtn.addEventListener("click", () => {
+    if (round >= 5) return;
+    round++;
+    const humanSelection = "scissors";
+    const computerSelection = getComputerChoice();
+    const result = playRound(humanSelection, computerSelection);
+    
+    // Results of the game
+    displayResult.innerHTML = `Round: ${round} <br> You selected: ${humanSelection} <br> 
+    Computer Selected: ${computerSelection} <br> Result: ${result}`;
+    
+    // Determine winner of the game
+    if (round === 5) {
+      score.textContent = `Final Score -> You: ${humanScore}, Computer: ${computerScore}, Ties: ${tie}`;
+      let gameWinner = "It's a tie!";
+      if (humanScore > computerScore) {
+        gameWinner = "You!"
+      } else if (computerScore > humanScore) {
+        gameWinner = "Computer"
+      }
+      winner.textContent = `The winner of the game is ${gameWinner}`;
+    }
+  });
+
+  // console.log(
+  //   `Final Score -> You: ${humanScore}, Computer: ${computerScore}, Ties: ${tie}`
+  // );
 }
-
 playGame();
