@@ -13,6 +13,4 @@ Tested my Javascript skills in;
 
  # Play the game:
   - Open the live link of the repo
-  - When the site is loaded, right click on the page and select inspect
-  - Click on the console option.
   - Have fun!
